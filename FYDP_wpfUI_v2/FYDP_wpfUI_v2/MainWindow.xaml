@@ -1,0 +1,129 @@
+﻿<Window x:Class="FYDP_wpfUI_v2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="789" Width="693" Name="MyWindow">
+    <Grid>
+        <Grid.DataContext>
+            <Binding ElementName="MyWindow" Path="."/>
+        </Grid.DataContext>
+       
+        <DockPanel 
+  Width="Auto" 
+  VerticalAlignment="Stretch" 
+  Height="Auto" 
+  HorizontalAlignment="Stretch" 
+  Grid.ColumnSpan="1" 
+  Grid.Column="0" 
+  Grid.Row="0" 
+  Margin="0,0,0,0" 
+  Grid.RowSpan="1">
+            <StackPanel>
+                <StackPanel.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="DarkKhaki" Offset=".3"/>
+                        <GradientStop Color="DarkKhaki" Offset=".7"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <StackPanel Name="sideControlPanel" Margin="10">
+                    <StackPanel Name="cameraControlPanel" Margin="10">
+                        <TextBlock Text="Camera X Position:"/>
+                        <Slider Height="23" Name="sliderCamX" Width="100" />
+                        <TextBlock Text="Camera Y Position:"/>
+                        <Slider Height="23" Name="sliderCamY" Width="100" />
+                        <TextBlock Text="Camera Z Position:"/>
+                        <Slider Height="23" Name="sliderCamZ" Width="100" />
+                        <Separator/>
+                        <TextBlock Text="Look Direction X:"/>
+                        <Slider Height="23" Name="sliderDirX" Width="100" />
+                        <TextBlock Text="Look Direction Y:"/>
+                        <Slider Height="23" Name="sliderDirY" Width="100" />
+                        <TextBlock Text="Look Direction Z:"/>
+                        <Slider Height="23" Name="sliderDirZ" Width="100" />
+                        <Separator/>
+                    </StackPanel>
+
+                    <Button 
+     Name="sphereButton" 
+     >Sphere</Button>
+                    <Separator/>             
+                    <StackPanel Name="objectControlPanel" Margin="10">
+                        
+                        <StackPanel Name="firstSegmentControlPanel" Margin="10" >
+                            <Slider Height="23" Name="rotateFirstSegmentXSlider" Width="100">
+                                <Slider.Value>
+                                    <Binding Path="FirstSegmentX"
+                                             UpdateSourceTrigger="PropertyChanged"/>
+                                </Slider.Value>
+                            </Slider>
+                            <TextBlock Height="23" Text="Rotate first segment X" />
+                            <Slider Height="23" Name="rotateFirstSegmentYSlider" Width="100">
+                                <Slider.Value>
+                                    <Binding Path="FirstSegmentY"
+                                             UpdateSourceTrigger="PropertyChanged"/>
+                                </Slider.Value>
+                            </Slider>
+                        <TextBlock Height="23" Text="Rotate first segment Y" />
+                            <Slider Height="23" Name="rotateFirstSegmentZSlider"  Width="100" >
+                                <Slider.Value>
+                                    <Binding Path="FirstSegmentZ"
+                                             UpdateSourceTrigger="PropertyChanged"/>
+                                </Slider.Value>
+                            </Slider>
+                        <TextBlock Height="23" Text="Rotate first segment Z" />
+                            <Slider Height="23" Name="rotateFirstSegmentWSlider" Width="100">
+                                <Slider.Value>
+                                    <Binding Path="FirstSegmentW"
+                                             UpdateSourceTrigger="PropertyChanged"/>
+                                </Slider.Value>
+                            </Slider>
+                        <TextBlock Height="23" Text="Rotate first segment W" />
+                        </StackPanel>
+
+                        <StackPanel Name="secondSegmentControlPanel" Margin="10">
+                            <Slider Height="23" Name="rotateSecondSegmentXSlider" Width="100" />
+                            <TextBlock Height="23" Text="Rotate first segment X" />
+                            <Slider Height="23" Name="rotateSecondSegmentYSlider" Width="100" />
+                            <TextBlock Height="23" Text="Rotate first segment Y" />
+                            <Slider Height="23" Name="rotateSecondSegmentZSlider" Width="100" />
+                            <TextBlock Height="23" Text="Rotate first segment Z" />
+                            <Slider Height="23" Name="rotateSecondSegmentWSlider" Width="100" />
+                            <TextBlock Height="23" Text="Rotate first segment W" />
+                        </StackPanel>
+
+                        <!--<StackPanel Name="thirdSegementControlPanel" Margin="10">
+                            <Slider Height="23" Name="rotateThirdSegmentXSlider" Width="100" />
+                            <TextBlock Height="23" Text="Rotate first segment X" />
+                            <Slider Height="23" Name="rotateThirdSegmentYSlider" Width="100" />
+                            <TextBlock Height="23" Text="Rotate first segment Y" />
+                            <Slider Height="23" Name="rotateThirdSegmentZSlider" Width="100" />
+                            <TextBlock Height="23" Text="Rotate first segment Z" />
+                            <Slider Height="23" Name="rotateThirdSegmentWSlider" Width="100" />
+                            <TextBlock Height="23" Text="Rotate first segment W" />
+                        </StackPanel>-->
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Height="100" Name="stackPanel1" Width="200" />
+            </StackPanel>
+            <Viewport3D Name="mainViewport" ClipToBounds="True">
+                <Viewport3D.Camera>
+                    <PerspectiveCamera 
+	  FarPlaneDistance="100"
+	  LookDirection="-11,-10,-9"
+	  UpDirection="0,1,0"
+	  NearPlaneDistance="1" 
+	  Position="20,10,50" 
+	  FieldOfView="100" />
+                </Viewport3D.Camera>
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <DirectionalLight 
+	    Color="White" 
+	    Direction="-2,-3,-1" />
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+            </Viewport3D>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{855B98B5-108A-4C65-A0FE-45475F95E819}</ProjectGuid>
+    <ProjectGuid>{3168CC9E-4D56-46C3-8A5D-73D2D70BC8DC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FYDP_wpfUI</RootNamespace>
-    <AssemblyName>FYDP_wpfUI</AssemblyName>
+    <RootNamespace>FYDP_wpfUI_v2</RootNamespace>
+    <AssemblyName>FYDP_wpfUI_v2</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FYDP_3Dobject_Util.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -91,12 +92,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FYDP_DataStructure\FYDP_DataStructure\FYDP_DataStructure.csproj">
-      <Project>{65DE28C5-EAA9-45C5-A6F7-8EEBC33380A4}</Project>
-      <Name>FYDP_DataStructure</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

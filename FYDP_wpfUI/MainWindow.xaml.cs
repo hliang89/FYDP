@@ -36,10 +36,8 @@ namespace FYDP_wpfUI
             InitializeComponent();
             InitializeSliderValues();
             InitializeObjectControls();
-
            
                 //// Create a new SerialPort object with default settings.
-                
 
                 //// Allow the user to set the appropriate properties.
                 //MCU_serialPort.PortName = "COM3";
@@ -54,7 +52,6 @@ namespace FYDP_wpfUI
                 //MCU_serialPort.WriteTimeout = 500;
 
                 //MCU_serialPort.Open();
-
                 
             Thread readThread = new Thread(ReadRawDataFromFile);
             readThread.Start();
@@ -63,19 +60,24 @@ namespace FYDP_wpfUI
         public void ReadRawDataFromFile()
         {
             List<string> allLines = new List<string>();
+            string[] heavyRotationAll3axis = File.ReadAllLines(@"C:\Users\h.liang\Documents\output_Jan_09.txt");
             string[] horizontalLines = File.ReadAllLines(@"C:\Users\h.liang\Dropbox\Engineering\Test Cases\Horizontal Rotation.txt");
             string[] leftRightLines = File.ReadAllLines(@"C:\Users\h.liang\Dropbox\Engineering\Test Cases\Left and Right.txt");
             string[] upAndDown = File.ReadAllLines(@"C:\Users\h.liang\Dropbox\Engineering\Test Cases\Up and Down.txt");
 
-            foreach (string s in horizontalLines)
-            {
-                allLines.Add(s);
-            }
-            foreach (string s in leftRightLines)
-            {
-                allLines.Add(s);
-            }
-            foreach (string s in upAndDown)
+            //foreach (string s in horizontalLines)
+            //{
+            //    allLines.Add(s);
+            //}
+            //foreach (string s in leftRightLines)
+            //{
+            //    allLines.Add(s);
+            //}
+            //foreach (string s in upAndDown)
+            //{
+            //    allLines.Add(s);
+            //}
+            foreach (string s in heavyRotationAll3axis)
             {
                 allLines.Add(s);
             }
